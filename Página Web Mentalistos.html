@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #060;
+	background-image: url(Alfarer%C3%ADa-lenca4.jpg);
+}
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen del bloque contenedor. El margen inferior restante lo mantendrá separado de los elementos de que le sigan.  */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de los bloques, en lugar de en los elementos del bloque propiamente dicho, elimina todas las matemáticas de modelo de cuadro. Un bloque anidado con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+/* ~~ Este contenedor de anchura fija rodea a todas las demás bloques ~~ */
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño  */
+}
+/* ~~ No se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. ~~ */
+header {
+	background-color: #ADB96E;
+}
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de los elementos del bloque. Los elementos situados dentro de estos bloques tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral al bloque propiamente dicho, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en el  bloque y colocar un segundo bloque dentro de éste sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en un bloque configurado para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de bloques para los que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla del elemento del bloque para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos bloques de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover los bloques por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #EADCAE;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0;
+	width: 600px;
+	float: left;
+}
+aside {
+	float: left;
+	width: 180px;
+	background-color: #EADCAE;
+	padding: 10px 0;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones  */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados  */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ El pie de página ~~ */
+footer {
+	padding: 10px 0;
+	background-color: #CCC49F;
+	position: relative;/* esto da a IE6 el parámetro hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+/* ~~ Clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en elemento <br /> o en un bloque vacío como elemento final tras el último bloque flotante (dentro de .container) si el pie se elimina o se saca fuera de .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*Compatibilidad con HTML5: define nuevas etiquetas HTML5 como display:block para que los navegadores sepan cómo procesar las etiquetas correctamente. */
+header, section, footer, aside, article, figure {
+	display: block;
+}
+-->
+</style><!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--></head>
+
+<body>
+
+<div class="container">
+  <header><img src="IMG-20210909-WA0001.jpg" width="958" height="225"  alt=""/></header>
+  <div class="sidebar1">
+    <ul class="nav">
+        <li><a href="https://www.youtube.com/watch?v=i0Miioj6MRY&t=53s" title="Mercadeo"><strong>Mercadeo</strong></a></li>
+        <li><a href="https://ilamdir.org/recurso/1356/galer%C3%ADa-nacional-del-arte-de-honduras" title="Arte"><strong>Arte</strong></a></li>
+        <li><strong><a href="https://www.youtube.com/watch?v=sE8YLRa-un4" title="Cultura">Cultura</a></strong></li>
+        <li><strong><a href="https://ne-np.facebook.com/pg/DireccionDeDeportesHN/posts/?ref=page_internal" title="Deportes">Deportes</a></strong></li>
+    </ul>
+    <aside>
+      <p align="left"><strong>Servicios de Mercadeo y  Publicidad:</strong></p>
+      <p align="left">Diseño gráfico en general. </p>
+      <p align="left">Filmación, producción y edición de audio-videos. </p>
+      <p align="left">Impresión en todos los formatos: laser, digital, 3D. </p>
+      <p align="left">Serigrafía y sublimación. </p>
+      <p align="left">Rotulación en general. </p>
+      <p align="left">Organización, montaje y promoción: de todo tipo  de eventos artísticos, culturales, institucionales, deportivos y promocionales.</p>
+      <p align="left">&nbsp;</p>
+      <p align="left"><strong>Elaboración de modelos para gestión de negocios:</strong><br>
+      </p>
+      <p align="left">Deportivos,  artísticos y culturales de manera eficiente y eficaz, mediante la ejecución de  planes, procesos y actividades; así como de tecnología deportiva. </p>
+<p align="left">&nbsp;</p>
+<p align="left"><strong>Elaboración y Comercio:</strong></p>
+<p align="left">Ropa sport.</p>
+<p align="left">Uniformes  de todo tipo.</p>
+<p align="left">camisas tipo polo.</p>
+<p align="left">Gorras.</p>
+<p align="left">Mochilas.</p>
+<p align="left"><strong>Compra, venta, distribución,  importación y exportación de todo tipo de materiales y artículos  promocionales</strong>    </p>
+    </aside>
+  <!-- end .sidebar1 --></div>
+  <article class="content">
+    <h1 align="center"> Mentalistos</h1>
+    <section>
+     <h2>Arte</h2>
+      <p>Es el concepto que engloba todas las creaciones realizadas por el ser  humano para expresar una visión sensible acerca del mundo, ya sea real o  imaginario. Mediante recursos plásticos, lingüísticos o  sonoros, el arte permite expresar ideas, emociones, percepciones y  sensaciones. </p>
+      <p>Durante tres  milenios antes de los territorios de la actual Honduras florecieron muchas  culturas, entre ellas la civilización Maya, Tawahkas, Pech, entre otros, estas  culturas desarrollaron diversas artes, entre ellas las pinturas rupestres, la  cerámica, escultura, música entre otras, además de diversas ciencias como  matemáticas y astronomía. </p>
+      <p><img src="IMG-20211017-WA0053.jpg"  alt="" width="500" height="300" align="right"/></p>
+    </section>
+    <section> </section>
+    <section>
+      <h2>Cultura</h2>
+      <p>Se refiere al conjunto de bienes  materiales y espirituales de un grupo social transmitido de generación en  generación a fin de orientar las prácticas individuales y colectivas. Incluye  lengua, procesos, modos de vida, costumbres, tradiciones, hábitos, valores,  patrones, herramientas y conocimiento. </p>
+      <p>Honduras es un país  multicultural y plurilingüe. Aunque la mayoría de su población es mestiza o  producto de la mezcla entre etnias hondureñas, africanas y europeas, Honduras  posee nueve grupos étnicos que mantienen su cultura y la mayoría de ellos su  idioma. Estos grupos son: Garífuna, Miskitu, Tawahka, Pech, Chortí, Lenca, Tolupán,  Nahua, y el Isleño. </p>
+      <p><img src="IMG-20211005-WA0027.jpg"  alt="" width="500" height="300" align="middle"/></p>
+    </section>
+    <section>
+      <h2>Deportes</h2>
+      <p>Es una actividad física<strong>,</strong> básicamente  de carácter competitivo y que mejora la condición física del individuo que lo  practica. El  Comité Olímpico Internacional (COI),<strong>&nbsp;</strong>señala que &ldquo;toda persona debe tener la posibilidad  de practicar deporte sin discriminación de ningún tipo y dentro del espíritu  olímpico, que exige comprensión mutua, solidaridad,&nbsp;y espíritu de amistad  y de juego limpio&rdquo;. </p>
+      <p>        En Honduras se practican diversos deportes, pero el fútbol es  el más popular entre los hondureños. Además, se practican atletismo, béisbol,  baloncesto, karate, judo, natación, ciclismo, en general todas las disciplinas  olímpicas, pero las más populares son las mencionadas.&nbsp;El Comité  Olímpico Hondureño se crea en 1956 y representa los ante el COI.</p>
+      <p><img src="IMG-20211005-WA0028.jpg"  alt="" width="570" height="300" align="right"/></p>
+    </section>
+  <!-- end .content --></article>
+  <aside>
+    <h4>Constitución</h4>
+    <p>Somos una Sociedad de Responsabilidad Limitada  de Capital Variable (S. de R.L. de C.V.), creada mediante instrumento 754 e inscrita  en la Cámara de Comercio e Industrias de Tegucigalpa (CCIT).</p>
+    <p>&nbsp;</p>
+    <p><strong>Permitenos Ayudarte a:</strong><br>
+    </p>
+    <p align="center">Mejorar tus contenidos.<br>
+    </p>
+    <p align="center">Atraer más tráfico hacia tu empresa.<br>
+    </p>
+    <p align="center">Tener más clientes.<br>
+    </p>
+    <p align="center">Mejorar tu reputación.<br>
+    </p>
+    <p align="center">Diferenciarte de la competencia.<br>
+    </p>
+    <p align="center">Fidelizar tus clientes.<br>
+    </p>
+    <p align="center">Reducir tus costos de publicidad.<br>
+    </p>
+    <p align="center">Mejorar la difusión de tu marca.<br>
+    </p>
+    <p align="center">Mejorar la interacción con tus clientes.<br>
+      </p>
+    <p align="center">Funcionar mejor con todos los trabajos de tu empresa.</p>
+    <p align="center">&nbsp;</p>
+    <p align="center"><strong>HONDURAS</strong><br>
+    </p>
+    <p align="left">Segundo país más grande de Centroamérica<strong>. </strong></p>
+    <p align="left">Con extensas playas caribeñas, gran cantidad  de montañas, pueblos coloniales con mucho encanto, ruinas mayas, una  gran variedad de aves y el segundo arrecife de coral más grande del mundo.</p>
+    <p align="left">Orgullosamente  nos llamamos &ldquo;Catrachos&rdquo; y siempre estamos &ldquo;Mentalistos&rdquo;  </p>
+  </aside>
+  <footer>
+    <p align="center">Tegucigalpa, M.D.C., Honduras, C.A. Colonia Alameda, Edifico Maya 3, Cubículo C-11.</p>
+    <p align="center">Creado por: José A. Galdames F.    </p>
+  </footer>
+<!-- end .container --></div>
+</body>
+</html>
